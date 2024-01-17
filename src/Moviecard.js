@@ -1,52 +1,52 @@
-import React from "react";
+import {Component} from "react";
 
 
-class Moviecard extends React.Component{
+function  Moviecard(props){
   
-    addStars =() =>{
-        // from 1
-        // this.setState({
-        //         stars: this.state.stars +0.5
-        //     });
+//     addStars =() =>{
+//         // from 1
+//         // this.setState({
+//         //         stars: this.state.stars +0.5
+//         //     });
 
-            // form 2
-            if(this.state.stars >=5){
-                return;
-            }
-            this.setState((prevState) => {
-                return{
-                    stars: prevState.stars+0.5
-                }
-            });
+//             // form 2
+//             if(this.state.stars >=5){
+//                 return;
+//             }
+//             this.setState((prevState) => {
+//                 return{
+//                     stars: prevState.stars+0.5
+//                 }
+//             });
       
-        // this.state.stars += 0.5;
-        // console.log("this.state.stars:", this.state.stars);
-    }
-    decStars =() =>{
-        // from 1
-        if(this.state.stars <=0){
-            return;
-        }
-        this.setState({
-                stars: this.state.stars -0.5
-            });
-    }
+//         // this.state.stars += 0.5;
+//         // console.log("this.state.stars:", this.state.stars);
+//     }
+//     decStars =() =>{
+//         // from 1
+//         if(this.state.stars <=0){
+//             return;
+//         }
+//         this.setState({
+//                 stars: this.state.stars -0.5
+//             });
+//     }
 
-handleFav = () =>{
-this.setState({
-    fav: !this.state.fav
-})
-}
+// handleFav = () =>{
+// this.setState({
+//     fav: !this.state.fav
+// })
+// }
 
-handleCart = () => {
-    this.setState({
-        cart: !this.state.cart
-    })
-}
+// handleCart = () => {
+//     this.setState({
+//         cart: !this.state.cart
+//     })
+// }
 
-    render(){
-        const {movies, addStars, decStars, toggleFav, toggleCart} = this.props;
-        const {title,plot,price,rating,stars,fav,cart} =this.props.movies;
+        const {movies, addStars, decStars, toggleFav, toggleCart} = props;
+
+        const {title,plot,price,rating,stars,fav,cart} = props.movies;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -57,7 +57,7 @@ handleCart = () => {
                 <div className="right">
                     <div className="title">{title}</div>
                     <div className="plot">{plot}</div>
-                    <div className="price">{price}</div>
+                    <div className="price">Rs. {price}</div>
 
                     <div className="footer">
                         <div className="rating">{rating}</div>
@@ -96,7 +96,7 @@ handleCart = () => {
             </div>
             )
     }
-}
+
 
 
 
